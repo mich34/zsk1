@@ -1,5 +1,3 @@
-//******Arkusz E.14-01-15.01*********
-
 var elPierwszy = document.getElementById('pierwszy');
  var elDruga = document.getElementById('druga');
 var elPodstawa = document.getElementById('podstawa');
