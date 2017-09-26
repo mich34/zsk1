@@ -1,4 +1,4 @@
-//Metoda getElementById()
+/*//Metoda getElementById()
 
 var elPierwszy = document.getElementById('pierwszy');
 elPierwszy.className = 'niebieski';
@@ -23,21 +23,21 @@ if(czerwony.length > 0){
 
 	//metoda szybsza
 /*	var ostatni = czerwony[czerwony.length-1];*/
-/*	ostatni.className = 'niebieski';*/
-}
+/*	ostatni.className = 'niebieski';}*/
+
 
 //Metoda querySelector()
 
 //zwraca pierwsze dopasowanie
 
-var elTv = document.querySelector('li.grey');
+/*var elTv = document.querySelector('li.grey');
 elTv.className = 'niebieski';
 
 //Metoda querySelectorAll()
 
 var elTvAll = document.querySelectorAll('li.grey');
 console.log(elTvAll.length);
-elTvAll[2].className = 'niebieski';
+elTvAll[2].className = 'niebieski';*/
 
 //Metoda getElementsByName()
 
@@ -52,7 +52,7 @@ elPrzycisk.onclick = function() {
 
 //To samo w pętli forEach
 
-var elPrzycisk = document.getElementById('Przycisk');
+/*var elPrzycisk = document.getElementById('Przycisk');
 var elTvZmien = document.getElementsByName('TV');
 
 function zmien(element,index){
@@ -60,6 +60,21 @@ function zmien(element,index){
 }
 elPrzycisk.onclick = function (){
 	elTvZmien.forEach(zmien);
-}
+} */
 
-//
+//fizzbuzz
+
+for (var i=1;i<101;i++) {
+if (i % 3 == 0) {
+    document.write('Fizz' + '<br>');
+}
+if (i % 5 == 0){
+    document.write('Buzz' + '<br>');
+}
+if (i % 15 == 0){
+    document.write('FizzBuzz' + '<br>');
+}
+else {
+    document.write(i + '<br>');
+}
+}
