@@ -67,7 +67,7 @@ function blokuj(){
 
 function haslo(){
     if (elPass1.value != elPass2.value){
-        elKomunikat.textContent = 'Hasła są różne';
+        elKomunikat.textContent = 'HASŁA RÓŻNE!!!';
         elPass1.disabled = false;
         this.disabled = true;
         elPass1.focus();
