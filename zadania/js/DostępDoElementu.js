@@ -1,4 +1,4 @@
-/*//Metoda getElementById()
+//Metoda getElementById()
 
 var elPierwszy = document.getElementById('pierwszy');
 elPierwszy.className = 'niebieski';
@@ -19,40 +19,40 @@ if(czerwony.length > 0){
 	console.log(czerwony);
 
 	//metoda wolniejsza
-	/*var ostatni = czerwony.item(czerwony.length - 1)*/
+	//var ostatni = czerwony.item(czerwony.length - 1)
 
 	//metoda szybsza
-/*	var ostatni = czerwony[czerwony.length-1];*/
-/*	ostatni.className = 'niebieski';}*/
+	var ostatni = czerwony[czerwony.length-1];
+    ostatni.className = 'niebieski';}
 
 
 //Metoda querySelector()
 
 //zwraca pierwsze dopasowanie
 
-/*var elTv = document.querySelector('li.grey');
+var elTv = document.querySelector('li.grey');
 elTv.className = 'niebieski';
 
 //Metoda querySelectorAll()
 
 var elTvAll = document.querySelectorAll('li.grey');
 console.log(elTvAll.length);
-elTvAll[2].className = 'niebieski';*/
+elTvAll[2].className = 'niebieski';
 
 //Metoda getElementsByName()
 
-/*var elPrzycisk = document.getElementById('Przycisk');
+var elPrzycisk = document.getElementById('Przycisk');
 //Ja zrobiłem sam
 elPrzycisk.onclick = function() {
 	var elAll = document.getElementsByName('TV');
 	for ( var i=0; i<elAll.length; i++){
 		elAll[i].className = 'niebieski';
 	}
-}*/
+}
 
 //To samo w pętli forEach
 
-/*var elPrzycisk = document.getElementById('Przycisk');
+var elPrzycisk = document.getElementById('Przycisk');
 var elTvZmien = document.getElementsByName('TV');
 
 function zmien(element,index){
@@ -60,11 +60,11 @@ function zmien(element,index){
 }
 elPrzycisk.onclick = function (){
 	elTvZmien.forEach(zmien);
-} */
+}
 
 //fizzbuzz
 
-for (var i=1;i<101;i++) {
+/*for (var i=1;i<101;i++) {
 if (i % 3 == 0) {
     document.write('Fizz' + '<br>');
 }
@@ -77,4 +77,43 @@ if (i % 15 == 0){
 else {
     document.write(i + '<br>');
 }
-}
+}*/
+
+var poczatekElement = document.getElementById('s2');
+var poprzedniElement = poczatekElement.previousElementSibling;
+var nastepnyElement = poczatekElement.nextElementSibling;
+
+poczatekElement.className = 'niebieski'
+poprzedniElement.className = 'niebieski'
+nastepnyElement.className = 'niebieski'
+
+var lista = document.getElementsByTagName('ul')[1];
+console.log(lista);
+
+var pierwszy = lista.firstElementChild;
+var ostatni = lista.lastElementChild;
+
+pierwszy.setAttribute('class', 'grey');
+ostatni.setAttribute('class', 'grey');
+
+
+//zmien pierwsze element input na button i przypisz wartosc wyslij
+
+
+var pierwszyInput = document.querySelector('input');
+pierwszyInput.setAttribute('type','button');
+pierwszyInput.setAttribute('value','wyśloj');
+
+//tekst WWW łącze ze stroną ZSK
+
+var www = document.getElementById('link');
+www.setAttribute('href','http://www.zsk.poznan.pl/');
+
+
+
+
+
+
+
+
+

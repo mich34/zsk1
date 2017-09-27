@@ -85,6 +85,62 @@ function blokujHaslo(){
     elPass2.focus();
     this.disabled = true;
 }
+
+function regulamin(){
+    if(elRegulamin.checked){
+        elPrzycisk.disabled = false;
+    }
+    else{
+        elPrzycisk.disabled = true;
+    }
+}
+
+/*function odblokuj(){
+    var zablokowana = document.getElementsByTagName('input');
+    if (zablokowana.length > 0){
+        for (var i=0; i < zablokowana.length; i++){
+            if (zablokowana[i].disabled){
+                zablokowana[i].disabled = false;
+            }
+        }
+    }
+}*/
+
+function odblokuj1(){
+    var zablokowana = document.querySelectorAll('input[disabled]');
+    if (zablokowana.length > 0){
+        for (var i=0; i < zablokowana.length; i++){
+            if (zablokowana[i].disabled){
+                zablokowana[i].disabled = false;
+            }
+        }
+    }
+}
+
+function wyslij(){
+    var puste = false;
+    var input = document.querySelectorAll('input');
+    for (var i=0; i<input.length ;i++){
+        if(input[i].value == ''){
+            puste = true;
+            break;
+        }
+    }
+
+    if (puste){
+            elKomunikat.textContent = 'PUSTE POLA!!!!';
+        }
+    else{
+    document.write('<div>');
+    document.write('Imię: ' + elImie.value + '<br>');
+    document.write('Nazwisko: ' + elNazwisko.value + '<br>');
+    document.write('Login: ' + elLogin.value + '<br>');
+    document.write('Mail: ' + elMail1.value + '<br>');
+    document.write('Data: ' + elUrodziny.value + '<br>');
+    document.write('</div>');
+    }
+}
+
 elImie.addEventListener('blur',sprawdz);
 elNazwisko.addEventListener('blur',sprawdz);
 elLogin.addEventListener('blur',sprawdz);
@@ -92,3 +148,17 @@ elMail2.addEventListener('blur',mail);
 elMail1.addEventListener('blur',blokuj);
 elPass2.addEventListener('blur',haslo);
 elPass1.addEventListener('blur',blokujHaslo);
+elRegulamin.addEventListener('change',regulamin);
+//elPopraw.addEventListener('click',odblokuj);
+elPopraw.addEventListener('click',odblokuj1);
+elPrzycisk.addEventListener('click',wyslij);
+
+
+
+
+
+
+
+
+
+
