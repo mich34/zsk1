@@ -64,8 +64,31 @@ function blokuj(){
     elMail2.focus();
     this.disabled = true;
 }
+
+function haslo(){
+    if (elPass1.value != elPass2.value){
+        elKomunikat.textContent = 'Hasła są różne';
+        elPass1.disabled = false;
+        this.disabled = true;
+        elPass1.focus();
+        elPass1.value = '';
+        this.value = '';
+    }
+    else{
+        elPass2.disabled = true;
+        elKomunikat.textContent = '';
+    }
+}
+
+function blokujHaslo(){
+    elPass2.disabled = false;
+    elPass2.focus();
+    this.disabled = true;
+}
 elImie.addEventListener('blur',sprawdz);
 elNazwisko.addEventListener('blur',sprawdz);
 elLogin.addEventListener('blur',sprawdz);
 elMail2.addEventListener('blur',mail);
 elMail1.addEventListener('blur',blokuj);
+elPass2.addEventListener('blur',haslo);
+elPass1.addEventListener('blur',blokujHaslo);
