@@ -109,13 +109,31 @@ elPrzycisk.onclick = function(){
     var sprawdzenie1 = regEx1.test(elKod.value);
     var sprawdzenie2 = regEx2.test(elMiasto.value);
 
-if(sprawdzenie1 == false){
+if(sprawdzenie1 == false && sprawdzenie2 == false){
+    elWynik.textContent = 'nieprawidłowe miasto i kod';
+}else if(sprawdzenie1 == false){
     elWynik.textContent = 'nieprawidłowy kod pocztowy';
 }else if(sprawdzenie2 == false){
     elWynik.textContent = 'nieprawidłowe miasto';
-}else{
+
+}
+
+else{
      elWynik.textContent = 'Kod pocztowy: ' + elKod.value + ' i ' + 'miasto: ' + elMiasto.value;
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
