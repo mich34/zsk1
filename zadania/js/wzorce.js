@@ -94,3 +94,28 @@ console.log(sprawdz26);
 console.log(sprawdz27);
 console.log(sprawdz28);
 console.log(sprawdz29);
+
+
+//zadanie domowe
+
+var elPrzycisk = document.getElementById('przycisk');
+var elWynik = document.getElementById('sprawdz');
+
+elPrzycisk.onclick = function(){
+    var regEx1 = /^[0-9]{2}-[0-9]{3}$/;
+    var regEx2 = /^\D[a-zA-Zęąńćźóćśł]{2,}$/;
+    var elKod = document.getElementById('kodPocztowy');
+    var elMiasto = document.getElementById('miasto');
+    var sprawdzenie1 = regEx1.test(elKod.value);
+    var sprawdzenie2 = regEx2.test(elMiasto.value);
+
+if(sprawdzenie1 == false){
+    elWynik.textContent = 'nieprawidłowy kod pocztowy';
+}else if(sprawdzenie2 == false){
+    elWynik.textContent = 'nieprawidłowe miasto';
+}else{
+     elWynik.textContent = 'Kod pocztowy: ' + elKod.value + ' i ' + 'miasto: ' + elMiasto.value;
+}
+}
+
+
