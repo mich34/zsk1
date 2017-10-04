@@ -14,6 +14,7 @@ var regImie = /^([a-z]|[ąśćżźęńł]){2,13}$/gi;
 var regNazwisko = /^[a-ząśężźćńłó]{2,20}(\-[a-zęóąśłżźćń]{2,20})?$/gi;
 var regLogin = /^[a-z0-9][\w\.\-\_]{1,25}[a-z0-9]$/gi;
 var regMail = /^[a-z0-9][\w\.\-]{1,29}[a-z0-9]\@[a-z0-9]{2,10}\.([a-z0-9]{2,10}\.)?[a-z]{2,3}$/gi;
+var regPass =/^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/ //bezpieczne haslo: male i duze litery, cyfry, znak specjalny
 elKomunikat.style.color = 'red';
 
 function sprawdzImie(){
@@ -50,7 +51,6 @@ function sprawdzLogin(){
     }
     }
 function mail(){
-		var sprawdz = regMail.test(elMail1.value);
         if(elMail1.value != elMail2.value){
         elKomunikat.textContent = 'RÓŻNE MEJLE!!!';
         elMail1.disabled = false;
@@ -67,9 +67,19 @@ function mail(){
 
 }
 function blokuj(){
+    var sprawdz = regMail.test(elMail1.value);
+    if(sprawdz){
     elMail2.disabled = false;
     elMail2.focus();
     this.disabled = true;
+    elKomunikat.textContent = '';}
+    else{
+        elMail1.focus();
+        elMail1.value = '';
+
+        elKomunikat.textContent = 'BŁĘDNY MAIL';
+
+    }
 }
 
 function haslo(){
@@ -88,9 +98,18 @@ function haslo(){
 }
 
 function blokujHaslo(){
-    elPass2.disabled = false;
-    elPass2.focus();
-    this.disabled = true;
+    var sprawdz = regPass.test(elPass1.value);
+    if(sprawdz){
+        elPass2.disabled = false;
+        elPass2.focus();
+        elPass1.disabled = true;
+        elKomunikat.textContent = '';
+    }
+    else{
+        elPass1.focus();
+        elKomunikat.textContent = 'BŁĘDNE HASŁO!';
+
+    }
 }
 
 function regulamin(){
@@ -148,6 +167,8 @@ elPass1.addEventListener('blur',blokujHaslo);
 elRegulamin.addEventListener('change',regulamin);
 elPopraw.addEventListener('click',odblokuj);
 elPrzycisk.addEventListener('click',wyslij);
+
+//przy hasle wyswietl czy haslo jest slabe, dobre czy silne. wyswietlenie ma byc obrazkiem!!!!!???kolor zielony: silne, pomaranczowy: dobre, czerwony: slabe. progressbar
 
 
 
