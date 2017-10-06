@@ -18,8 +18,8 @@ var regMail = /^[a-z0-9][\w\.\-]{1,29}[a-z0-9]\@[a-z0-9]{2,10}\.([a-z0-9]{2,10}\
 var regPass =/^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/; //bezpieczne haslo: male i duze litery, cyfry, znak specjalny
 
 var regSlabe = /^[a-z]{1,7}$/i;
-var regDobre = /^((?=.*[a-z])(?=.*[0-9]).{8,10})$/i;///^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,35})$/;
-var regSilne = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/;//^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{12,35})$/;
+var regDobre = /^((?=.*[a-z])(?=.*[0-9]).{8,10})$/i;
+var regSilne = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/;
 
 
 elKomunikat.style.color = 'red';
