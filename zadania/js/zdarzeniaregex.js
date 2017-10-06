@@ -10,11 +10,18 @@ var elRegulamin = document.getElementById('regulamin');
 var elPrzycisk = document.getElementById('przycisk');
 var elPopraw = document.getElementById('popraw');
 var elKomunikat = document.getElementById('komunikat');
+var elObrazek = document.getElementById('obrazek');
 var regImie = /^([a-z]|[ąśćżźęńł]){2,13}$/gi;
 var regNazwisko = /^[a-ząśężźćńłó]{2,20}(\-[a-zęóąśłżźćń]{2,20})?$/gi;
 var regLogin = /^[a-z0-9][\w\.\-\_]{1,25}[a-z0-9]$/gi;
 var regMail = /^[a-z0-9][\w\.\-]{1,29}[a-z0-9]\@[a-z0-9]{2,10}\.([a-z0-9]{2,10}\.)?[a-z]{2,3}$/gi;
-var regPass =/^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/ //bezpieczne haslo: male i duze litery, cyfry, znak specjalny
+var regPass =/^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/; //bezpieczne haslo: male i duze litery, cyfry, znak specjalny
+
+var regSlabe = /^[a-z]{1,7}$/i;
+var regDobre = /^((?=.*[a-z])(?=.*[0-9]).{8,10})$/i;///^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,35})$/;
+var regSilne = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/;//^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{12,35})$/;
+
+
 elKomunikat.style.color = 'red';
 
 function sprawdzImie(){
@@ -157,6 +164,17 @@ function wyslij(){
     }
 }
 
+function sprawdzenie(){
+    if(regSlabe.test(elPass1.value)){
+        elObrazek.setAttribute('src', 'slabe.png');
+    }else if(regDobre.test(elPass1.value)){
+        elObrazek.setAttribute('src', 'dobre.png');
+    }else if(regSilne.test(elPass1.value)){
+        elObrazek.setAttribute('src', 'silne.png');
+    }
+}
+
+
 elImie.addEventListener('blur',sprawdzImie);
 elNazwisko.addEventListener('blur',sprawdzNazwisko);
 elLogin.addEventListener('blur',sprawdzLogin);
@@ -167,7 +185,7 @@ elPass1.addEventListener('blur',blokujHaslo);
 elRegulamin.addEventListener('change',regulamin);
 elPopraw.addEventListener('click',odblokuj);
 elPrzycisk.addEventListener('click',wyslij);
-
+elPass1.addEventListener('input',sprawdzenie);
 //przy hasle wyswietl czy haslo jest slabe, dobre czy silne. wyswietlenie ma byc obrazkiem!!!!!???kolor zielony: silne, pomaranczowy: dobre, czerwony: slabe. progressbar
 
 
