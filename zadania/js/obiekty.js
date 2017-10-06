@@ -135,10 +135,111 @@ function Hotel(nazwa,pokoje,zarezerwowanePokoje,silownia,basen,rodzajPokoju){
 
 var HotelLech = new Hotel('Lech',100,30,true,false, ['jednoosobowy','apartament']);
 
-document.write(HotelLech.wyswietl());
+//document.write(HotelLech.wyswietl());
 
+//**********************************************************
 
+function Osoba(imie, nazwisko, wiek, plec){
+    this.imie = imie;
+    this.nazwisko = nazwisko;
+    this.wiek = wiek;
+    this.plec = plec;
+    this.narodowosc = 'Polska';
+}
 
+var ja = new Osoba('Michał', 'Szafer', 19, 'M');
+var czarek = new Osoba('Czarek', 'Kowal', 34, 'M');
+
+//document.write(czarek.imie);
+
+//utworz konstruktor o nazwie pies i parametrach imie rasa waga oraz ulubione zajecia(moze byc wiele wartosci), utworz 3 obiekty o nazwach azor, ebi saba
+
+function Pies(imie, rasa, waga, ulubioneZajecia){
+    this.imie = imie;
+    this.rasa = rasa;
+    this.waga = waga;
+    this.ulubioneZajecia = ulubioneZajecia;
+}
+
+var azor = new Pies('Azor', 'mieszaniec', 8,['spacery', 'jedzenie']);
+var ebi = new Pies('Ebi', 'mieszaniec', 12,['kąpiel', 'zabawa']);
+var saba = new Pies('Saba', 'mieszaniec', 10,['spanie', 'szczekanie']);
+
+//document.write(ebi.ulubioneZajecia);
+
+var psy = [azor, ebi, saba];//psy!!!!
+
+//console.log(psy);
+
+ebi.ulubioneZajecia.push('głaskanie');
+/*
+var rozmiar = 'maly pies';
+
+for(var i=0;i<psy.length;i++){
+    if(psy[i].waga<10)
+        psy[i].rozmiar = 'maly pies';
+
+    else
+       psy[i].rozmiar = 'duzy pies';
+
+document.write("Pies: <span style='color: blue'>" + psy[i].imie + '</span> to ' + psy[i].rozmiar + '<br>');
+
+}*/
+
+/*
+var tab = ['jan', 'nowak', 'Poznań'];
+for (var i in tab){
+    //document.write(i);
+    document.write(i + '-' + tab[i] + '<br>');
+
+}
+
+for(var x in ebi){
+    if (x == 'imie' || x == 'rasa'){
+        document.write(ebi[x]);
+    }
+}
+*/
+
+/*function Pole(a,b,c,d){
+    return a*b;
+}
+console.log(Pole);
+console.log(Pole.length);
+console.log(Pole.constructor);
+console.log(Pole.prototype);*/
+
+function Uczen(imie, nazwisko){
+    this.imie = imie;
+    this.nazwisko = nazwisko;
+}
+
+var maciej = new Uczen('Maciej', 'Nowak');
+Uczen.prototype.narodowosc = 'Polska';
+Uczen.prototype.wyswietl = function(){
+    return 'imie: ' + this.imie + ' nazwisko: ' + this.nazwisko + ' narodowosc: ' + this.narodowosc + '<br>';
+}
+
+document.write(maciej.wyswietl());
+
+//document.write(maciej.constructor.prototype.narodowosc);
+
+//utworz konstruktor rower, ktory ma 2 parametry nazwa oraz kolor, utworz prototyp ilosc kol = 2, utworz metode wyswietlajaca wszystkie dane z apmomoca for in prototyp wyswietlajacy wszystkie dane za pomoca for in
+
+function Rower(nazwa, kolor){
+    this.nazwa = nazwa;
+    this.kolor = kolor;
+}
+Rower.prototype.iloscKol = 2;
+
+var skladak = ['składak', 'niebieski'];
+for (i in skladak){
+    if(typeof(this[i] != 'function'))
+    document.write(i + '-' + skladak[i] + '<br>');
+}
+
+console.log(maciej.hasOwnProperty('narodowosc'));
+console.log(maciej.hasOwnProperty('imie'));
 
 
 
